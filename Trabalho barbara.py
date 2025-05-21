@@ -1,25 +1,28 @@
+def main():
+    avaliação = []
 
-def main ():
-    dados1 = [ ]
     for i in range(3):
         while True:
-            print(f"\Dados {i+1}")
+            print(f"\nAvaliação {i + 1}")
             avaliador = input("Digite seu nome: ")
             nomef = input("Digite o nome do filme: ")
-            nota1 = int(input("Digite sua nota para o filme entre 0 e 10: "))
-            if nota.isdigit():
-                nota = int(nota1)
-                if 0 <= nota <= 10:
+            nota1 = input("Digite sua nota para o filme entre 0 e 10: ")
+            try:
+                nota = float(nota1)
+                if 0 <= nota <= 10 :
+                    avaliação.append([avaliador, nomef, nota])
                     break
                 else:
-                    print("Nota invalida, tente novamente...")
-            dados1.append([avaliador, nomef, nota])
-            print("\n---Dados dos Avaliadores---")
-            for dados1 in nota:
-                print(f"NOME: {avaliador[0]} | NOME DO FILME:{nomef[1]:.2f} | NOTA:{nota[2]:.2f}")
+                    print("Nota inválida, tente novamente...")
+            except ValueError:
+                print("Nota inválida, tente novamente...")
+
+    print("\n--- Dados dos Avaliadores ---")
+    for dado in avaliação:
+        print(f"NOME: {dado[0]} | NOME DO FILME: {dado[1]} | NOTA: {dado[2]:.2f}")
+
 if __name__=="__main__":
    main()
-
         
         
 
